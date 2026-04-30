@@ -2,7 +2,7 @@ import dash
 from dash import dcc, html, Input, Output
 import pandas as pd
 import plotly.express as px
-
+import os
 
 # ============================================================
 # ESTILO EXTERNO BOOTSTRAP
@@ -532,4 +532,5 @@ def update_dashboard(selected_year, selected_affected):
 # ============================================================
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=9000)
+    port = int(os.environ.get("PORT", 9000))
+    app.run(debug=False, host="0.0.0.0", port=port)
